@@ -18,7 +18,7 @@ This repository contains a collection of mathematical research projects conducte
 
 ### 3. A Sharp Trigonometric Double Inequality
 - **Summary:** Published paper establishing a sharp double inequality involving trigonometric functions, improving classical bounds and contributing to the theory of trigonometric approximations and inequalities.
-- **Published in:** *Publicationes Mathematicae Debrecen*, Vol. 98(1–2), pp. 231–242, Jan 2021
+- **Published in:** *Publicationes Mathematicae Debrecen*, Vol. 98(1–2), pp. 231–242, Jan 2021  
   [DOI: 10.5486/PMD.2021.8865](https://doi.org/10.5486/PMD.2021.8865)
 
 ## 🧠 Background
