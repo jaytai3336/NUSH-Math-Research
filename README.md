@@ -9,7 +9,7 @@ This repository contains a collection of mathematical research projects conducte
 - **Recognition:**
   - 🥈 *Merit Award*, Singapore Science and Engineering Fair (SSEF) 2021
   - 🏅 *Research Excellence Award*, International Student Science Fair (ISSF) 2021
-- **Files:** `SSEF_paper.pdf`, `SSEF_poster.pdf`, `ISSF_paper.pdf`, `ISSF_slides.pdf` (slides have some formatting issues)
+- **Files:** `SSEF_paper.pdf`, `SSEF_poster.pdf`, `SSEF_slides.pdf`, `ISSF_paper.pdf`, `ISSF_slides.pdf` (slides have some formatting issues)
 
 ### 2. Some Functional Upper Bounds for Fejér’s Sine Polynomial
 - **Summary:** Published paper providing novel upper bounds for Fejér-type trigonometric polynomials, contributing to the understanding of harmonic analysis and inequalities.
