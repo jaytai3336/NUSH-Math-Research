@@ -25,8 +25,10 @@ This repository contains a collection of mathematical research projects conducte
 
 These projects were developed under the mentorship of Dr Tuo Yeong Lee (retired) as part of NUS High School’s Research Program. They involved intensive use of trigonometric identities, inequalities, symbolic computation, and mathematical writing in LaTeX.
 
-## 📂 License
+## 📂 Repository Notes
 
-All original content is licensed under the MIT License. Published material follows respective journal policies.
+The `Brannan's conjecture and trigonometric polynomials/` folder contains the competition submission files (papers, poster, slides) for Project 1. Projects 2 and 3 are published under journal copyright and are not included — access them via the DOI links above.
 
-Readme file was written using the help of Chatgpt
+## License
+
+All original content in this repository is licensed under the MIT License. Published material follows the respective journal's copyright policies.
