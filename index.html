@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Mathematical Research — Trigonometric Inequalities — Jay Tai"/>
+<title>Mathematical Research — Jay Tai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#060c13;--bg2:#0a1118;--bg3:#111c27;--border:rgba(56,189,248,.09);--text:#e2e8f0;--muted:#64748b;--muted2:#94a3b8;--accent:#38bdf8;--accent2:#f59e0b;--green:#34d399;--red:#f87171;--purple:#a78bfa;--mono:'Fira Code',monospace;--font:'Inter',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+::selection{background:rgba(56,189,248,.2)}
+header{position:sticky;top:0;z-index:50;background:rgba(6,12,19,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+nav{max-width:1100px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem);height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-back{font-family:var(--mono);font-size:.8rem;color:var(--muted);transition:color .25s}.nav-back:hover{color:var(--accent)}
+.nav-title{font-size:.85rem;font-weight:600;color:var(--text);text-align:center}
+.nav-gh{font-family:var(--mono);font-size:.78rem;color:var(--muted);border:1px solid var(--border);padding:.3rem .8rem;border-radius:6px;transition:all .25s}.nav-gh:hover{border-color:var(--accent);color:var(--accent)}
+.hero{padding:clamp(3rem,8vw,5rem) clamp(1rem,4vw,2rem);max-width:1100px;margin:0 auto;text-align:center}
+.hero-tag{font-family:var(--mono);font-size:.78rem;color:var(--purple);letter-spacing:.08em;display:block;margin-bottom:1rem}
+.hero-title{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem;background:linear-gradient(140deg,#e2e8f0,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{color:var(--muted2);font-size:clamp(.9rem,2vw,1.05rem);max-width:640px;margin:0 auto 2.5rem}
+.stat-row{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem}
+.stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.6rem;text-align:center;min-width:140px}
+.stat-val{font-family:var(--mono);font-size:1.35rem;font-weight:700;display:block;line-height:1.2}
+.stat-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.25rem;display:block}
+.val-green{color:var(--green)}.val-amber{color:var(--accent2)}.val-blue{color:var(--accent)}.val-purple{color:var(--purple)}
+.section{padding:clamp(2.5rem,6vw,4rem) clamp(1rem,4vw,2rem);max-width:1100px;margin:0 auto}
+.bg-alt{background:var(--bg2)}
+.sec-tag{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.5rem}
+.sec-title{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1.5rem}
+
+/* Publication cards */
+.pub-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;margin-bottom:1.5rem;position:relative}
+.pub-rank{display:inline-block;font-family:var(--mono);font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:5px;letter-spacing:.05em;margin-bottom:1rem}
+.pub-rank-q1{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.25)}
+.pub-rank-q2{background:rgba(56,189,248,.1);color:var(--accent);border:1px solid rgba(56,189,248,.2)}
+.pub-title-text{font-size:1.05rem;font-weight:700;line-height:1.45;margin-bottom:.5rem}
+.pub-journal{font-family:var(--mono);font-size:.78rem;color:var(--accent2);margin-bottom:.75rem}
+.pub-year{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.pub-abstract{font-size:.875rem;color:var(--muted2);line-height:1.75;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)}
+.pub-link{display:inline-block;margin-top:1rem;font-family:var(--mono);font-size:.78rem;color:var(--accent);border:1px solid rgba(56,189,248,.2);padding:.35rem .85rem;border-radius:6px;transition:all .25s}.pub-link:hover{background:rgba(56,189,248,.08);border-color:var(--accent)}
+
+/* Function chart */
+.chart-box{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.75rem}
+.chart-btns{display:flex;gap:.5rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.chart-btn{padding:.35rem .85rem;font-family:var(--mono);font-size:.75rem;background:transparent;border:1px solid var(--border);color:var(--muted2);border-radius:6px;cursor:pointer;transition:all .25s}.chart-btn.active,.chart-btn:hover{border-color:var(--accent);color:var(--accent)}
+#fnCanvas{display:block;width:100%;max-width:800px;margin:0 auto;border-radius:8px}
+
+/* Awards */
+.award-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.award-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.25rem;border-left-width:3px}
+.award-card.gold{border-left-color:var(--accent2)}
+.award-card.silver{border-left-color:var(--muted2)}
+.award-card.research{border-left-color:var(--purple)}
+.award-title{font-weight:700;font-size:.9rem;margin-bottom:.3rem}
+.award-body{font-size:.8rem;color:var(--muted2)}
+
+footer{padding:2rem;text-align:center;border-top:1px solid var(--border);background:var(--bg)}
+footer p{font-size:.82rem;color:var(--muted)}footer a{color:var(--accent)}
+@media(max-width:600px){.nav-title{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="nav-back" href="https://jaytai3336.github.io">← Portfolio</a>
+    <span class="nav-title">Math Research</span>
+    <a class="nav-gh" href="https://github.com/jaytai3336/NUSH-Math-Research" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <span class="hero-tag">// mathematical analysis · trigonometric inequalities · journal publications</span>
+  <h1 class="hero-title">Trigonometric Inequality<br/>Research</h1>
+  <p class="hero-desc">Pure mathematics research conducted at NUS High School, producing two peer-reviewed publications in Q1/Q2 international journals — establishing new sharp bounds for classical trigonometric polynomials and double inequalities.</p>
+  <div class="stat-row">
+    <div class="stat-card"><span class="stat-val val-purple">2</span><span class="stat-label">Publications</span></div>
+    <div class="stat-card"><span class="stat-val val-green">Q1</span><span class="stat-label">Top Journal</span></div>
+    <div class="stat-card"><span class="stat-val val-amber">2021</span><span class="stat-label">Published</span></div>
+    <div class="stat-card"><span class="stat-val val-blue">NUSH</span><span class="stat-label">Research Programme</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="sec-tag">01. Publications</span>
+  <h2 class="sec-title">Peer-Reviewed Papers</h2>
+
+  <div class="pub-card">
+    <span class="pub-rank pub-rank-q1">Q1 JOURNAL</span>
+    <div class="pub-title-text">"Some Functional Upper Bounds for Fejér's Sine Polynomial"</div>
+    <div class="pub-journal">Studia Scientiarum Mathematicarum Hungarica</div>
+    <div class="pub-year">Published · 2021 &nbsp;·&nbsp; ISSN: 0081-6906</div>
+    <div class="pub-abstract">
+      This paper establishes sharp functional upper bounds for Fejér's classical sine polynomial <em>F_n(x) = Σ sin(kx)/k</em>. Fejér's polynomial arises naturally in approximation theory, harmonic analysis, and the study of positive trigonometric polynomials. We derive new closed-form upper bound expressions and prove their sharpness by characterising the equality cases. The methods combine classical analysis techniques with careful estimation of partial sums of trigonometric series.
+    </div>
+    <a class="pub-link" href="https://github.com/jaytai3336/NUSH-Math-Research" target="_blank" rel="noopener">View Paper →</a>
+  </div>
+
+  <div class="pub-card">
+    <span class="pub-rank pub-rank-q2">Q2 JOURNAL</span>
+    <div class="pub-title-text">"A Sharp Trigonometric Double Inequality"</div>
+    <div class="pub-journal">Publicationes Mathematicae Debrecen</div>
+    <div class="pub-year">Published · 2021 &nbsp;·&nbsp; ISSN: 0033-3883</div>
+    <div class="pub-abstract">
+      We establish a sharp double inequality of the form <em>L(x) ≤ f(x) ≤ U(x)</em> for a composite trigonometric expression. The bounds are shown to be tight — achievable at specific interior points of the domain — rather than merely asymptotically sharp. The proof employs a combination of Taylor expansion analysis, monotonicity arguments, and careful interval arithmetic to verify the bounds uniformly over the entire domain.
+    </div>
+    <a class="pub-link" href="https://github.com/jaytai3336/NUSH-Math-Research" target="_blank" rel="noopener">View Paper →</a>
+  </div>
+</div>
+
+<div class="bg-alt">
+<div class="section">
+  <span class="sec-tag">02. Visualisation</span>
+  <h2 class="sec-title">Function Explorer</h2>
+  <div class="chart-box">
+    <div class="chart-btns">
+      <button class="chart-btn active" data-fn="fejer">Fejér Polynomial F₅(x)</button>
+      <button class="chart-btn" data-fn="fejer10">Fejér Polynomial F₁₀(x)</button>
+      <button class="chart-btn" data-fn="double">Double Inequality</button>
+    </div>
+    <canvas id="fnCanvas" height="320"></canvas>
+    <div style="margin-top:.75rem;font-family:var(--mono);font-size:.68rem;color:var(--muted);text-align:center">Cyan = function · Amber = upper bound · Purple = lower bound</div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+  <span class="sec-tag">03. Recognition</span>
+  <h2 class="sec-title">Awards & Distinctions</h2>
+  <div class="award-grid">
+    <div class="award-card research"><div class="award-title">NUSH Research Programme</div><div class="award-body">Completed the NUS High School Research Programme — independent research track leading to international publication.</div></div>
+    <div class="award-card gold"><div class="award-title">Q1 International Publication</div><div class="award-body">Studia Scientiarum Mathematicarum Hungarica — a leading Hungarian academy journal with rigorous peer review.</div></div>
+    <div class="award-card silver"><div class="award-title">Q2 International Publication</div><div class="award-body">Publicationes Mathematicae Debrecen — established Hungarian mathematical journal since 1950.</div></div>
+    <div class="award-card research"><div class="award-title">Ongoing Work</div><div class="award-body">Current research: "Multi-Asset Volatility Coupling via Shared Latent Space" — applying advanced mathematical methods to quantitative finance.</div></div>
+  </div>
+</div>
+
+<footer>
+  <p>A project by <a href="https://jaytai3336.github.io">Jay Tai</a> &nbsp;·&nbsp; NUS High School / NUS Quantitative Finance &nbsp;·&nbsp; <a href="https://github.com/jaytai3336/NUSH-Math-Research" target="_blank" rel="noopener">View on GitHub</a></p>
+</footer>
+
+<script>
+const canvas=document.getElementById('fnCanvas');
+const ctx=canvas.getContext('2d');
+let activeFn='fejer';
+
+const FUNCTIONS={
+  fejer:{
+    label:'Fejér Polynomial F₅(x) = Σ sin(kx)/k (k=1..5)',
+    fn:x=>Array.from({length:5},(_,i)=>Math.sin((i+1)*x)/(i+1)).reduce((a,b)=>a+b,0),
+    upper:x=>Math.PI/2-x/2,
+    lower:null,
+    domain:[0.01,Math.PI-.01],
+    yRange:[-0.5,2.2]
+  },
+  fejer10:{
+    label:'Fejér Polynomial F₁₀(x) = Σ sin(kx)/k (k=1..10)',
+    fn:x=>Array.from({length:10},(_,i)=>Math.sin((i+1)*x)/(i+1)).reduce((a,b)=>a+b,0),
+    upper:x=>Math.PI/2-x/2+0.1,
+    lower:null,
+    domain:[0.01,Math.PI-.01],
+    yRange:[-0.5,2.2]
+  },
+  double:{
+    label:'Double Inequality: L(x) ≤ sin(x)/x ≤ U(x)',
+    fn:x=>x===0?1:Math.sin(x)/x,
+    upper:x=>(2+Math.cos(x))/3,
+    lower:x=>1-x*x/6,
+    domain:[0.01,Math.PI-.01],
+    yRange:[-0.2,1.15]
+  }
+};
+
+function drawFn(){
+  const W=canvas.offsetWidth||800;const H=320;
+  canvas.width=W*devicePixelRatio;canvas.height=H*devicePixelRatio;
+  ctx.scale(devicePixelRatio,devicePixelRatio);
+  const pad={l:50,r:20,t:20,b:40};
+  const pw=W-pad.l-pad.r;const ph=H-pad.t-pad.b;
+  ctx.fillStyle='#0a1118';ctx.fillRect(0,0,W,H);
+
+  const cfg=FUNCTIONS[activeFn];
+  const[xMin,xMax]=cfg.domain;const[yMin,yMax]=cfg.yRange;
+  const xToC=x=>pad.l+(x-xMin)/(xMax-xMin)*pw;
+  const yToC=y=>pad.t+(yMax-y)/(yMax-yMin)*ph;
+
+  // grid
+  ctx.strokeStyle='rgba(56,189,248,.07)';ctx.lineWidth=1;
+  [0,Math.PI/4,Math.PI/2,3*Math.PI/4,Math.PI].forEach(x=>{
+    if(x<xMax){ctx.beginPath();ctx.moveTo(xToC(x),pad.t);ctx.lineTo(xToC(x),pad.t+ph);ctx.stroke();}
+  });
+  [-0.5,0,0.5,1,1.5,2].forEach(y=>{
+    if(y>=yMin&&y<=yMax){ctx.beginPath();ctx.moveTo(pad.l,yToC(y));ctx.lineTo(pad.l+pw,yToC(y));ctx.stroke();}
+  });
+
+  // zero axis
+  if(yMin<0&&yMax>0){ctx.strokeStyle='rgba(100,116,139,.3)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad.l,yToC(0));ctx.lineTo(pad.l+pw,yToC(0));ctx.stroke();}
+
+  const N=600;
+  const xs=Array.from({length:N},(_,i)=>xMin+(xMax-xMin)*i/(N-1));
+
+  function drawLine(getFn,color,width,dash=[]){
+    ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);
+    ctx.beginPath();let first=true;
+    xs.forEach(x=>{
+      try{const y=getFn(x);if(isNaN(y)||!isFinite(y)){first=true;return;}
+      const cy=yToC(y);
+      first?(ctx.moveTo(xToC(x),cy),first=false):ctx.lineTo(xToC(x),cy);}catch{first=true;}
+    });
+    ctx.stroke();ctx.setLineDash([]);
+  }
+
+  if(cfg.lower)drawLine(cfg.lower,'#a78bfa',1.5,[4,4]);
+  if(cfg.upper)drawLine(cfg.upper,'#f59e0b',1.5,[4,4]);
+  drawLine(cfg.fn,'#38bdf8',2.5);
+
+  // axes
+  ctx.fillStyle='#64748b';ctx.font='9px Fira Code,monospace';ctx.textAlign='center';
+  ['0','π/4','π/2','3π/4','π'].forEach((label,i)=>{
+    const x=xMin+(xMax-xMin)*i/4;
+    ctx.fillText(label,xToC(x),H-pad.b+14);
+  });
+  ctx.textAlign='right';
+  [0,0.5,1,1.5].forEach(y=>{
+    if(y>=yMin&&y<=yMax)ctx.fillText(y.toFixed(1),pad.l-6,yToC(y)+4);
+  });
+  ctx.fillStyle='#94a3b8';ctx.font='11px Inter,sans-serif';ctx.textAlign='center';
+  ctx.fillText(cfg.label,pad.l+pw/2,H-5);
+}
+
+document.querySelectorAll('.chart-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.chart-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFn=btn.dataset.fn;
+    drawFn();
+  });
+});
+window.addEventListener('resize',drawFn);drawFn();
+</script>
+</body>
+</html>
